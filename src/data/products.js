@@ -1,3 +1,4 @@
+// Lista de productos
 export const products = [
   {
     id: 1,
@@ -21,3 +22,21 @@ export const products = [
     category: "moda",
   },
 ];
+
+// ✅ Simula una llamada asíncrona (Promise)
+export const getProducts = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(products);
+    }, 500);
+  });
+};
+
+// ✅ Simula obtener un producto por ID
+export const getProductById = (id) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(products.find((p) => p.id === parseInt(id)));
+    }, 500);
+  });
+};
