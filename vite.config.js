@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/CreaTuLanding1-Campos2/',
+  base: '/CreaTuLanding1-Campos2/', 
 })
