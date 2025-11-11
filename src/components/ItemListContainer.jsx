@@ -20,11 +20,15 @@ export default function ItemListContainer() {
     });
   }, [categoryId]);
 
-  if (loading) return <p style={{ textAlign: "center" }}>Cargando productos...</p>;
+  if (loading)
+    return <p style={{ textAlign: "center", color: "white" }}>Cargando productos...</p>;
+
+  if (products.length === 0)
+    return <p style={{ textAlign: "center", color: "white" }}>No hay productos disponibles 😢</p>;
 
   return (
-    <div className="catalogo">
-      <h2>Catálogo de Productos</h2>
+    <div style={{ padding: "2rem", color: "white" }}>
+      <h2 style={{ textAlign: "center" }}>Catálogo de Productos</h2>
       <ItemList products={products} />
     </div>
   );
