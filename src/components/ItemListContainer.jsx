@@ -1,26 +1,24 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getProducts } from "../data/products";
+import { products } from "../data/products";
 import ItemList from "./ItemList";
 
 export default function ItemListContainer() {
   const { categoryId } = useParams();
-  const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
-    getProducts().then((res) => {
-      if (categoryId) {
-        setProducts(res.filter(p => p.category === categoryId));
-      } else {
-        setProducts(res);
-      }
-    });
+    if (categoryId) {
+      setFilteredProducts(products.filter(p => p.category === categoryId));
+    } else {
+      setFilteredProducts(products);
+    }
   }, [categoryId]);
 
   return (
-    <div className="item-list-container">
-      <h2>{categoryId ? `Categoría: ${categoryId}` : "Catálogo de Productos"}</h2>
-      <ItemList products={products} />
+    <div>
+      <h2 className="section-title">Catálogo de Productos</h2>
+      <ItemList products={filteredProducts} />
     </div>
   );
 }

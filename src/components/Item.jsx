@@ -1,12 +1,14 @@
-import React from "react";
 import "./Item.css";
 
 export default function Item({ product }) {
   return (
-    <div className="item">
-      <img src={product.image} alt={product.title} />
-      <h2>{product.title}</h2>
-      <p>${product.price}</p>
+    <div className="item-card">
+      <img src={product.image} alt={product.name} className="item-image" />
+      <div className="item-info">
+        <h3>{product.name}</h3>
+        <p className="price">${product.price}</p>
+        <button>Ver detalle</button>
+      </div>
     </div>
   );
 }
