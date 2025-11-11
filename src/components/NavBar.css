@@ -1,0 +1,31 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #000, #2c2c2c);
+  color: silver;
+  padding: 1rem 2rem;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.navbar a {
+  color: silver;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: white;
+}
+
+.logo {
+  font-size: 1.4rem;
+  color: white;
+}

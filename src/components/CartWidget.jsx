@@ -1,11 +1,11 @@
-import React from "react";
+import { ShoppingCart } from "lucide-react";
+import "./CartWidget.css";
 
-const CartWidget = () => {
+export default function CartWidget() {
   return (
-    <div>
-      🛒 <span>3</span>
+    <div className="cart-widget">
+      <ShoppingCart size={24} color="silver" />
+      <span className="cart-count">2</span>
     </div>
   );
-};
-
-export default CartWidget;
+}

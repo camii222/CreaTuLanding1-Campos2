@@ -1,21 +1,20 @@
 {
-  "name": "CreaTuLanding1+Campos2",
-  "version": "0.0.0",
   "private": true,
-  "homepage": "https://github.com/camii222/CreaTuLanding1-Campos2.git",
-  "type": "module",
+  "homepage": "https://camii222.github.io/CreaTuLanding1-Campos2/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
     "deploy": "gh-pages -d dist"
   },
-  "dependencies": {
-    "@vitejs/plugin-react": "^5.1.0",
-    "react-router": "^7.9.5"
-  },
   "devDependencies": {
-    "gh-pages": "^6.3.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "gh-pages": "^6.1.1",
     "vite": "^7.1.0"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.9.5"
   }
 }

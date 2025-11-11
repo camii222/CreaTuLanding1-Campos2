@@ -1,0 +1,15 @@
+.cart-widget {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: silver;
+  cursor: pointer;
+}
+
+.cart-count {
+  background: silver;
+  color: black;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  padding: 3px 7px;
+}
