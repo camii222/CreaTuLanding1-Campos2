@@ -1,24 +1,31 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { products } from "../data/products";
+import { getProducts } from "../data/products";
 import ItemList from "./ItemList";
 
 export default function ItemListContainer() {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { categoryId } = useParams();
-  const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
-    if (categoryId) {
-      setFilteredProducts(products.filter(p => p.category === categoryId));
-    } else {
-      setFilteredProducts(products);
-    }
+    setLoading(true);
+    getProducts().then((res) => {
+      if (categoryId) {
+        setProducts(res.filter((p) => p.category === categoryId));
+      } else {
+        setProducts(res);
+      }
+      setLoading(false);
+    });
   }, [categoryId]);
 
+  if (loading) return <p style={{ textAlign: "center" }}>Cargando productos...</p>;
+
   return (
-    <div>
-      <h2 className="section-title">Catálogo de Productos</h2>
-      <ItemList products={filteredProducts} />
+    <div className="catalogo">
+      <h2>Catálogo de Productos</h2>
+      <ItemList products={products} />
     </div>
   );
 }
