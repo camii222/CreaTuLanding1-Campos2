@@ -6,7 +6,7 @@ import CartWidget from "./CartWidget";
 export default function NavBar() {
   return (
     <nav className="navbar">
-      <h1 className="logo">CreaTuLanding</h1>
+      <h1 className="logo">Productos Campos</h1>
       <ul>
         <li><Link to="/">Inicio</Link></li>
         <li><Link to="/category/electrónica">Electrónica</Link></li>

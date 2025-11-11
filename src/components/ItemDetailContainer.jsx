@@ -4,16 +4,24 @@ import { getProductById } from "../data/products";
 import ItemDetail from "./ItemDetail";
 
 export default function ItemDetailContainer() {
-  const { id } = useParams();
   const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const { id } = useParams();
 
   useEffect(() => {
-    getProductById(id).then(setProduct);
+    setLoading(true);
+    getProductById(id)
+      .then((res) => setProduct(res))
+      .finally(() => setLoading(false));
   }, [id]);
 
+  if (loading) return <p style={{ textAlign: "center" }}>Cargando producto...</p>;
+
+  if (!product) return <p style={{ textAlign: "center" }}>Producto no encontrado 😢</p>;
+
   return (
-    <div>
-      {product ? <ItemDetail product={product} /> : <p>Cargando...</p>}
+    <div className="item-detail-container">
+      <ItemDetail product={product} />
     </div>
   );
 }
