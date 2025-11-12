@@ -1,13 +1,15 @@
-import { Link } from "react-router-dom";
 import "./Item.css";
+import { Link } from "react-router-dom";
 
 export default function Item({ product }) {
   return (
-    <div className="item">
-      <img src={product.image} alt={product.title} />
-      <h3>{product.title}</h3>
+    <div className="item-card">
+      <img src={product.img} alt={product.name} />
+      <h3>{product.name}</h3>
       <p>${product.price}</p>
-      <Link to={`/item/${product.id}`} className="btn">Ver detalle</Link>
+      <Link to={`/item/${product.id}`} className="detail-button">
+        Ver detalle
+      </Link>
     </div>
   );
 }
